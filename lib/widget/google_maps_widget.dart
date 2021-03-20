@@ -33,10 +33,8 @@ class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
         return Consumer<GoogleMapProvider>(
           builder: (_, mapModel, child) {
             return GoogleMap(
-              myLocationButtonEnabled: true,
               circles: Set.from(mapModel.safetyColors),
               markers: Set.from(mapModel.safetyMarker),
-              zoomControlsEnabled: true,
               initialCameraPosition: CameraPosition(
                 target: LatLng(
                   liveLocationsnapshot.data.latitude,
