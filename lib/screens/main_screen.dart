@@ -36,17 +36,17 @@ class _MainScreenState extends State<MainScreen> {
               }
             },
           ),
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () async {
-              try {
-                await Provider.of<GoogleMapProvider>(context, listen: false)
-                    .getSafetyMarkerAndCircles(LatLng(12.22, 0.09));
-              } catch (e) {
-                print(e);
-              }
-            },
-          )
+          // IconButton(
+          //   icon: Icon(Icons.add),
+          //   onPressed: () async {
+          //     try {
+          //       await Provider.of<GoogleMapProvider>(context, listen: false)
+          //           .getSafetyMarkerAndCircles(LatLng(12.22, 0.09));
+          //     } catch (e) {
+          //       print(e);
+          //     }
+          //   },
+          // )
         ],
       ),
       body: FutureBuilder<Position>(

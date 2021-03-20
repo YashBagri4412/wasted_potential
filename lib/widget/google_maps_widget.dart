@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -13,6 +15,13 @@ class GoogleMapsWidget extends StatefulWidget {
 }
 
 class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<GoogleMapProvider>(context, listen: false)
+        .getSafetyMarkerAndCircles();
+  }
+
   Widget build(BuildContext context) {
     return StreamBuilder(
       initialData: widget.locatioData,
@@ -28,12 +37,11 @@ class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
             child: Text(liveLocationsnapshot.error.toString()),
           );
         }
-
         return Consumer<GoogleMapProvider>(
           builder: (_, mapModel, child) {
             return GoogleMap(
-              circles: Set.from(mapModel.safetyColors),
               markers: Set.from(mapModel.safetyMarker),
+              circles: Set.from(mapModel.safetyColors),
               initialCameraPosition: CameraPosition(
                 target: LatLng(
                   liveLocationsnapshot.data.latitude,
