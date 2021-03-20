@@ -8,7 +8,7 @@
             "name": "savdhaan_app",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile",
+            "flutterMode": "debug",
         }
     ]
 }

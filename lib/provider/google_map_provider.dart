@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:http/http.dart' as http;
 
 class GoogleMapProvider with ChangeNotifier {
   List<Marker> _safetyMarker = [
@@ -53,9 +56,16 @@ class GoogleMapProvider with ChangeNotifier {
 
   List<Circle> get safetyColors => _safetyColors;
   //get marker from firebase database
-  Future<Set<Marker>> getSafetyMarkerAndCircles(LatLng inititalLocation) {
+  Future<void> getSafetyMarkerAndCircles(LatLng inititalLocation) async {
     //future for fetching data from firebase
     //the response would be mapped to set of Marker class
     //set MarkerID
+
+    final response = await http.get(
+        "https://gmapauth-default-rtdb.firebaseio.com/location/place.json?");
+
+    for (int i = 0; i < 7; i++) {
+      print((jsonDecode(response.body))[i]["area"]["name"]);
+    }
   }
 }

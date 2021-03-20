@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:savdhaan_app/provider/google_map_provider.dart';
 import 'package:savdhaan_app/widget/google_maps_widget.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 //Relative imports
@@ -20,6 +23,32 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     _panelHeightOpen = MediaQuery.of(context).size.height * .65;
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Savdhaan"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () async {
+              try {
+                await FirebaseAuth.instance.signOut();
+              } catch (e) {
+                print("${e.toString}  from logout");
+              }
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () async {
+              try {
+                await Provider.of<GoogleMapProvider>(context, listen: false)
+                    .getSafetyMarkerAndCircles(LatLng(12.22, 0.09));
+              } catch (e) {
+                print(e);
+              }
+            },
+          )
+        ],
+      ),
       body: FutureBuilder<Position>(
         future: Provider.of<GeoLocatorProvider>(context, listen: false)
             .getLocation(),
@@ -34,6 +63,7 @@ class _MainScreenState extends State<MainScreen> {
               child: Text("${snapshot.error.toString()}"),
             );
           }
+
           return SlidingUpPanel(
             maxHeight: _panelHeightOpen,
             minHeight: _panelHeightClosed,
