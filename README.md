@@ -21,7 +21,7 @@
 1. GoogleMaps have been rendered on the screen and tested in release mode flutter version was downgraded 1.22.3 to prevent maps from crashing in release mode.
 2. Markers and Circles have beeen tested with dummy data is connected to firebase.
 
-## Sliging up panel
+## Sliding up panel
 A draggable bottom sliding panel displays the nearest police station and hospital details where you can call and navigate to the location. The emergency button allows the user to call the chosen people which, the user would have selected in the initial stage and, a text safe or not safe will indicate whether the user's current location is safe or not safe
 
 ## What need to be done
