@@ -1,16 +1,18 @@
-# savdhaan_app
+## savdhaan_app
 
-A new Flutter project.
+The aim of the app is to improve women safety while they tavel/commute.
+Providing Area safety to people purchasing home/lands in an unknown place.
+Alerting people of safe and unsafe zone
 
-## Getting Started
+## Progress so far
 
-This project is a starting point for a Flutter application.
+# Permission
+The permission of accessing location data where handled and tested in release and realtime location data is accessed using gps and stored only App state.The location is accessed only when the user is using his phone.
+# Proguard
+API keys where hided using android pro guard bu using flutter_config package.
 
-A few resources to get you started if this is your first Flutter project:
+# Gooogle Maps
+GoogleMaps have been rendered on the screen and tested in release mode flutter version was downgraded 1.22.3 to prevent maps from crashing in release mode.
+Markers and Circles have beeen tested with dummy data and needs to be connected to firebase.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
