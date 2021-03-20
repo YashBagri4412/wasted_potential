@@ -28,8 +28,7 @@ class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
             child: Text(liveLocationsnapshot.error.toString()),
           );
         }
-        print(
-            "Latitude: ${liveLocationsnapshot.data.latitude} + Longitude: ${liveLocationsnapshot.data.longitude}");
+
         return Consumer<GoogleMapProvider>(
           builder: (_, mapModel, child) {
             return GoogleMap(

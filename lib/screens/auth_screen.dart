@@ -24,7 +24,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   bool _isLogin = true;
   bool _progressReq = false;
-  bool _gButtonHighlightState = false;
+
   bool _sButtonHighlightState = false;
 
   String _userName;
