@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "143341145451",
+    "project_id": "gmapauth",
+    "storage_bucket": "gmapauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143341145451:android:4a82e6f52c4e67d3a4502e",
+        "android_client_info": {
+          "package_name": "com.example.savdhaan_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143341145451-juv81v9vit6hjj13f0d44slu7ggn9qc7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.savdhaan_app",
+            "certificate_hash": "054469ce018c2680c7931965601780eac574aef9"
+          }
+        },
+        {
+          "client_id": "143341145451-l87o6bfrrsg5erg1ipsv9p452b7qg5bn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg8T1UBTi2lfJGI29vfaVntymIpGh25Q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143341145451-l87o6bfrrsg5erg1ipsv9p452b7qg5bn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

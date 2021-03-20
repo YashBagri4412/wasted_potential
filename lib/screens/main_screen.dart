@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:savdhaan_app/widget/google_maps_widget.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -20,6 +21,21 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     _panelHeightOpen = MediaQuery.of(context).size.height * .65;
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Savdhaan"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () async {
+              try {
+                await FirebaseAuth.instance.signOut();
+              } catch (e) {
+                print("${e.toString}  from logout");
+              }
+            },
+          )
+        ],
+      ),
       body: FutureBuilder<Position>(
         future: Provider.of<GeoLocatorProvider>(context, listen: false)
             .getLocation(),

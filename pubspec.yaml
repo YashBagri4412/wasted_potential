@@ -34,6 +34,8 @@ dependencies:
   sliding_up_panel:
   flutter_config:
   font_awesome_flutter:
+  firebase_auth:
+  google_sign_in:
 dev_dependencies:
   flutter_test:
     sdk: flutter
