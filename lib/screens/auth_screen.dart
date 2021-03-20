@@ -329,45 +329,45 @@ class _AuthScreenState extends State<AuthScreen> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text(
-                            "Or Sign Up Using",
-                            style: Theme.of(context).textTheme.caption,
-                          ),
-                          Container(
-                            child: FlatButton.icon(
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              color: Colors.white,
-                              icon: Icon(
-                                Icons.android,
-                                color: _gButtonHighlightState
-                                    ? Colors.white
-                                    : Theme.of(context).primaryColor,
-                              ),
-                              label: Text(
-                                "Sign Up With Google",
-                                style: (_gButtonHighlightState)
-                                    ? GoogleFonts.openSans(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                      )
-                                    : GoogleFonts.openSans(
-                                        color: Theme.of(context).primaryColor,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                              ),
-                              highlightColor: Colors.blue,
-                              onHighlightChanged: (value) {
-                                setState(() {
-                                  _gButtonHighlightState = value;
-                                });
-                              },
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              onPressed: googleSignIn,
-                            ),
-                          ),
+                          // Text(
+                          //   "Or Sign Up Using",
+                          //   style: Theme.of(context).textTheme.caption,
+                          // ),
+                          // Container(
+                          //   child: FlatButton.icon(
+                          //     materialTapTargetSize:
+                          //         MaterialTapTargetSize.shrinkWrap,
+                          //     color: Colors.white,
+                          //     icon: Icon(
+                          //       Icons.android,
+                          //       color: _gButtonHighlightState
+                          //           ? Colors.white
+                          //           : Theme.of(context).primaryColor,
+                          //     ),
+                          //     label: Text(
+                          //       "Sign Up With Google",
+                          //       style: (_gButtonHighlightState)
+                          //           ? GoogleFonts.openSans(
+                          //               color: Colors.white,
+                          //               fontWeight: FontWeight.w700,
+                          //             )
+                          //           : GoogleFonts.openSans(
+                          //               color: Theme.of(context).primaryColor,
+                          //               fontWeight: FontWeight.w700,
+                          //             ),
+                          //     ),
+                          //     highlightColor: Colors.blue,
+                          //     onHighlightChanged: (value) {
+                          //       setState(() {
+                          //         _gButtonHighlightState = value;
+                          //       });
+                          //     },
+                          //     shape: RoundedRectangleBorder(
+                          //       borderRadius: BorderRadius.circular(30),
+                          //     ),
+                          //     onPressed: googleSignIn,
+                          //   ),
+                          // ),
                           SizedBox(
                             height: 10,
                           ),
