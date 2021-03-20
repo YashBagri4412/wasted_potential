@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomCard extends StatefulWidget {
   @override
@@ -7,6 +8,15 @@ class CustomCard extends StatefulWidget {
 }
 
 class _CustomCardState extends State<CustomCard> {
+  Future<void> _launched;
+  Future<void> _makePhoneCall(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,12 +30,13 @@ class _CustomCardState extends State<CustomCard> {
           'sadashivanagar police station',
         ),
         buildContainer(
-            'Near by Hospital',
-            Icon(
-              FontAwesomeIcons.hospital,
-              size: 50,
-            ),
-            'M.S Ramiah Hospital'),
+          'Near by Hospital',
+          Icon(
+            FontAwesomeIcons.hospital,
+            size: 50,
+          ),
+          'M.S Ramiah Hospital',
+        ),
       ],
     );
   }
@@ -50,7 +61,9 @@ class _CustomCardState extends State<CustomCard> {
               alignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 FlatButton.icon(
-                  onPressed: () {},
+                  onPressed: () => setState(() {
+                    _launched = _makePhoneCall('tel:11111');
+                  }),
                   icon: Icon(
                     Icons.call,
                     color: Colors.green,
