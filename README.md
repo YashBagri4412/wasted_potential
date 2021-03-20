@@ -19,11 +19,10 @@
 1. GoogleMaps have been rendered on the screen and tested in release mode flutter version was downgraded 1.22.3 to prevent maps from crashing in release mode.
 2. Markers and Circles have beeen tested with dummy data and needs to be connected to firebase.
 
+## Sliging up panel
+A draggable bottom sliding panel displays the nearest police station and hospital details where you can call and navigate to the location.The emergency button allows the user to call the chosen people which, the user would have selected in the initial stage and, a text safe or not safe will indicate whether the user's current location is safe or not safe
+
 ## What need to be done
 1. Connecting maps to firebase and getting the location and there respective crime data
 2. Connecting intents to dial to hospital and police station and also to navigate
 3. Getting nearest police station and hospital through places api
-
-## Sliging up panel
-A draggable bottom sliding panel displays the nearest police station and hospital details where you can call and navigate to the location.The emergency button allows the user to call the chosen people which, the user would have selected in the initial stage and, a text safe or not safe will indicate whether the user's current location is safe or not safe
-
