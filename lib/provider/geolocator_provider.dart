@@ -44,4 +44,15 @@ class GeoLocatorProvider with ChangeNotifier {
     }
     return this._isPermissionGiven;
   }
+
+  Future<Position> getLocation() async {
+    Position response;
+    try {
+      response = await Geolocator.getCurrentPosition();
+    } catch (e) {
+      print("$e from the intial Location");
+      return null;
+    }
+    return response;
+  }
 }
