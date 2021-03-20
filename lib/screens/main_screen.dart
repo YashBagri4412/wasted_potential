@@ -5,10 +5,20 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../provider/geolocator_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:savdhaan_app/widget/Bottom_panel.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
+  @override
+  _MainScreenState createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  double _panelHeightOpen;
+  double _panelHeightClosed = 95.0;
+
   @override
   Widget build(BuildContext context) {
+    _panelHeightOpen = MediaQuery.of(context).size.height * .65;
     return Scaffold(
       body: FutureBuilder<Position>(
         future: Provider.of<GeoLocatorProvider>(context, listen: false)
@@ -25,11 +35,19 @@ class MainScreen extends StatelessWidget {
             );
           }
           return SlidingUpPanel(
+            maxHeight: _panelHeightOpen,
+            minHeight: _panelHeightClosed,
+            parallaxEnabled: true,
+            parallaxOffset: .5,
             body: GoogleMapsWidget(
               locatioData: snapshot.data,
             ),
-            panel: Center(
-              child: Text("Places here"),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(18.0),
+              topRight: Radius.circular(18.0),
+            ),
+            panelBuilder: (ScrollController sc) => BottomPanel(
+              sc: sc,
             ),
           );
         },
