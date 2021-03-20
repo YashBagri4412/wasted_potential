@@ -42,7 +42,7 @@ class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
                   liveLocationsnapshot.data.latitude,
                   liveLocationsnapshot.data.longitude,
                 ),
-                zoom: 10,
+                zoom: 12,
               ),
               myLocationEnabled: true,
             );
