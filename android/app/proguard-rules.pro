@@ -1,0 +1,1 @@
+-keep class com.example.savdhaan_app.BuildConfig.* { *; }
