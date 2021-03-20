@@ -39,17 +39,20 @@ class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
         }
         return Consumer<GoogleMapProvider>(
           builder: (_, mapModel, child) {
-            return GoogleMap(
-              markers: Set.from(mapModel.safetyMarker),
-              circles: Set.from(mapModel.safetyColors),
-              initialCameraPosition: CameraPosition(
-                target: LatLng(
-                  liveLocationsnapshot.data.latitude,
-                  liveLocationsnapshot.data.longitude,
+            return Container(
+              height: MediaQuery.of(context).size.height * 0.55,
+              child: GoogleMap(
+                markers: Set.from(mapModel.safetyMarker),
+                circles: Set.from(mapModel.safetyColors),
+                initialCameraPosition: CameraPosition(
+                  target: LatLng(
+                    liveLocationsnapshot.data.latitude,
+                    liveLocationsnapshot.data.longitude,
+                  ),
+                  zoom: 12,
                 ),
-                zoom: 12,
+                myLocationEnabled: true,
               ),
-              myLocationEnabled: true,
             );
           },
         );
