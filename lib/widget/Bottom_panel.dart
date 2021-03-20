@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:savdhaan_app/widget/CustomCard.dart';
 
 class BottomPanel extends StatefulWidget {
   final ScrollController sc;
@@ -66,6 +67,7 @@ class _BottomPanelState extends State<BottomPanel> {
           SizedBox(
             height: 20,
           ),
+          CustomCard(),
         ],
       ),
     );
