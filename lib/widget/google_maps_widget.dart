@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:savdhaan_app/provider/google_map_provider.dart';
 
 class GoogleMapsWidget extends StatefulWidget {
   final Position locatioData;
@@ -28,17 +30,23 @@ class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
         }
         print(
             "Latitude: ${liveLocationsnapshot.data.latitude} + Longitude: ${liveLocationsnapshot.data.longitude}");
-        return GoogleMap(
-          myLocationButtonEnabled: false,
-          zoomControlsEnabled: false,
-          initialCameraPosition: CameraPosition(
-            target: LatLng(
-              liveLocationsnapshot.data.latitude,
-              liveLocationsnapshot.data.longitude,
-            ),
-            zoom: 10,
-          ),
-          myLocationEnabled: true,
+        return Consumer<GoogleMapProvider>(
+          builder: (_, mapModel, child) {
+            return GoogleMap(
+              myLocationButtonEnabled: true,
+              circles: Set.from(mapModel.safetyColors),
+              markers: Set.from(mapModel.safetyMarker),
+              zoomControlsEnabled: true,
+              initialCameraPosition: CameraPosition(
+                target: LatLng(
+                  liveLocationsnapshot.data.latitude,
+                  liveLocationsnapshot.data.longitude,
+                ),
+                zoom: 10,
+              ),
+              myLocationEnabled: true,
+            );
+          },
         );
       },
     );

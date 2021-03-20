@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_config/flutter_config.dart';
 import 'package:provider/provider.dart';
 import 'package:savdhaan_app/provider/geolocator_provider.dart';
+import 'package:savdhaan_app/provider/google_map_provider.dart';
 //Relative Imports
 import 'widget/permission_selector.dart';
 
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: GeoLocatorProvider(),
         ),
+        ChangeNotifierProvider.value(
+          value: GoogleMapProvider(),
+        )
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
