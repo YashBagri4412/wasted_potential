@@ -65,7 +65,7 @@ class GoogleMapProvider with ChangeNotifier {
         .get("https://gmapauth-default-rtdb.firebaseio.com/location.json?");
 
     var jsonDecoded = jsonDecode(response.body)["place"];
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 22; i++) {
       print(i);
       _safetyMarker.add(
         Marker(
@@ -105,10 +105,10 @@ class GoogleMapProvider with ChangeNotifier {
                   ? Colors.green.withOpacity(0.60)
                   : Colors.yellow.withOpacity(0.60),
           radius: (jsonDecoded[i]["area"]["Numbers"] > 1200)
-              ? 2500
+              ? 1500
               : (jsonDecoded[i]["area"]["Numbers"] < 50)
-                  ? 1200
-                  : 2000,
+                  ? 500
+                  : 1000,
           strokeWidth: 1,
         ),
       );
