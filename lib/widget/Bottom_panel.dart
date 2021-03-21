@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:savdhaan_app/services/place_service.dart';
 import 'package:savdhaan_app/widget/CustomCard.dart';
 
 class BottomPanel extends StatefulWidget {
   final ScrollController sc;
-  BottomPanel({this.sc});
+  final String ilat;
+  final String ilng;
+  BottomPanel({this.sc, this.ilat, this.ilng});
+
   @override
   _BottomPanelState createState() => _BottomPanelState();
 }
@@ -67,7 +72,57 @@ class _BottomPanelState extends State<BottomPanel> {
           SizedBox(
             height: 20,
           ),
-          CustomCard(),
+          FutureBuilder(
+              future: getData('police', widget.ilat, widget.ilng),
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text("${snapshot.error.toString()}"),
+                  );
+                }
+                if (snapshot.hasData) {
+                  return CustomCard(
+                    title: 'Nearest police station',
+                    subtitle: '${snapshot.data['name']}',
+                    icon: Icon(
+                      FontAwesomeIcons.shieldAlt,
+                      size: 50,
+                    ),
+                    initlat: double.parse(widget.ilat),
+                    initlng: double.parse(widget.ilng),
+                    flat: snapshot.data['lat'],
+                    flng: snapshot.data['lng'],
+                    phone: '100',
+                  );
+                }
+                return Center(child: Text('Loading..'));
+              }),
+          FutureBuilder(
+              future: getData('hospital', widget.ilat, widget.ilng),
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text("${snapshot.error.toString()}"),
+                  );
+                }
+
+                if (snapshot.hasData) {
+                  return CustomCard(
+                    title: 'Nearest hospital',
+                    subtitle: '${snapshot.data['name']}',
+                    icon: Icon(
+                      FontAwesomeIcons.hospital,
+                      size: 50,
+                    ),
+                    initlat: double.parse(widget.ilat),
+                    initlng: double.parse(widget.ilng),
+                    flat: snapshot.data['lat'],
+                    flng: snapshot.data['lng'],
+                    phone: snapshot.data['phone'],
+                  );
+                }
+                return Center(child: Text('Loading..'));
+              }),
         ],
       ),
     );

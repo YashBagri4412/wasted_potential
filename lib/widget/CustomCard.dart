@@ -1,37 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:savdhaan_app/services/call_service.dart';
 
-class CustomCard extends StatefulWidget {
-  @override
-  _CustomCardState createState() => _CustomCardState();
-}
+import 'package:savdhaan_app/services/url_google_maps.dart';
 
-class _CustomCardState extends State<CustomCard> {
+class CustomCard extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final Icon icon;
+  final double initlat;
+  final double initlng;
+  final double flat;
+  final double flng;
+  final String phone;
+  CustomCard({
+    this.title,
+    this.subtitle,
+    this.icon,
+    this.initlat,
+    this.initlng,
+    this.flat,
+    this.flng,
+    this.phone,
+  });
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        buildContainer(
-          'Near by police Station',
-          Icon(
-            FontAwesomeIcons.shieldAlt,
-            size: 50,
-          ),
-          'sadashivanagar police station',
-        ),
-        buildContainer(
-          'Near by Hospital',
-          Icon(
-            FontAwesomeIcons.hospital,
-            size: 50,
-          ),
-          'M.S Ramiah Hospital',
-        ),
-      ],
-    );
-  }
-
-  Container buildContainer(String s, Icon icon, String sub) {
     return Container(
       width: double.infinity,
       child: Card(
@@ -44,14 +37,16 @@ class _CustomCardState extends State<CustomCard> {
             ListTile(
               contentPadding: const EdgeInsets.all(20),
               leading: icon,
-              title: Text(s),
-              subtitle: Text(sub),
+              title: Text(title),
+              subtitle: Text(subtitle),
             ),
             ButtonBar(
               alignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 FlatButton.icon(
-                  onPressed: () {},
+                  onPressed: () async {
+                    await makePhoneCall('tel:$phone');
+                  },
                   icon: Icon(
                     Icons.call,
                     color: Colors.green,
@@ -62,7 +57,9 @@ class _CustomCardState extends State<CustomCard> {
                   ),
                 ),
                 FlatButton.icon(
-                  onPressed: () {},
+                  onPressed: () async {
+                    await openMap(initlat, initlng, flat, flng);
+                  },
                   icon: Icon(
                     FontAwesomeIcons.locationArrow,
                     color: Colors.red,

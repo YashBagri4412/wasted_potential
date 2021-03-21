@@ -8,15 +8,9 @@ import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:savdhaan_app/widget/Bottom_panel.dart';
 
-class MainScreen extends StatefulWidget {
-  @override
-  _MainScreenState createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
+class MainScreen extends StatelessWidget {
   double _panelHeightOpen;
   double _panelHeightClosed = 95.0;
-
   @override
   Widget build(BuildContext context) {
     _panelHeightOpen = MediaQuery.of(context).size.height * .65;
@@ -76,6 +70,8 @@ class _MainScreenState extends State<MainScreen> {
             ),
             panelBuilder: (ScrollController sc) => BottomPanel(
               sc: sc,
+              ilat: snapshot.data.latitude.toString(),
+              ilng: snapshot.data.longitude.toString(),
             ),
           );
         },
