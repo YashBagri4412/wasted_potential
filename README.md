@@ -18,7 +18,7 @@
 ---
 
 ## Sliding Up Panel 
-1. The sliding up panel has been setup and the hidden panel ui has been created
+1. The sliding up panel has been setup and the hidden panel UI has been created
 ---
 
 ## Google Maps
@@ -33,16 +33,23 @@ A draggable bottom sliding panel displays the nearest police station and hospita
 ## What need to be done
 1. Connecting maps to firebase and getting the location and there respective crime data == **DONE**
 2. Connecting intents to dial to hospital and police station and also to navigate 
-3. Getting nearest police station and hospital through places api
+3. Getting nearest police station and hospital through places api == **DONE**
 ---
 
 ### Progress Images
 
+Location and Basic Markers Set Up
 ![Location Page](Picture1.png)
 ![Map](Picture2.png)
+---
+
+Sliding Panel Set Up and Login Page Shown
 ![Sliding](Picture3.png)
 ![Login](Login.jpeg)
+---
+Sign Up page Set Up and More places fetched from firebase realtime storage
 ![SignUp](SignUp.jpeg)
+![Multiple Markers](Markers.jpeg)
 ---
 
 #### Team Wasted Potential
