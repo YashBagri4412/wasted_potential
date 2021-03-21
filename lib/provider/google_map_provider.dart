@@ -81,6 +81,10 @@ class GoogleMapProvider with ChangeNotifier {
                     ? BitmapDescriptor.hueGreen
                     : BitmapDescriptor.hueYellow,
           ),
+          infoWindow: InfoWindow(
+            title: jsonDecoded[i]["area"]["name"],
+            snippet: jsonDecoded[i]["area"]["Numbers"].toString(),
+          ),
         ),
       );
       _safetyColors.add(
@@ -100,7 +104,11 @@ class GoogleMapProvider with ChangeNotifier {
               : (jsonDecoded[i]["area"]["Numbers"] < 50)
                   ? Colors.green.withOpacity(0.60)
                   : Colors.yellow.withOpacity(0.60),
-          radius: 1000,
+          radius: (jsonDecoded[i]["area"]["Numbers"] > 1200)
+              ? 2500
+              : (jsonDecoded[i]["area"]["Numbers"] < 50)
+                  ? 1200
+                  : 2000,
           strokeWidth: 1,
         ),
       );

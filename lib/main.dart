@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         title: 'Savdhaan App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          accentColor: Colors.white,
+          accentColor: Colors.blue,
           textTheme: TextTheme(
             bodyText1: GoogleFonts.openSans(),
             headline3: GoogleFonts.openSans(

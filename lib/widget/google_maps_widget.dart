@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -49,7 +47,7 @@ class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
                     liveLocationsnapshot.data.latitude,
                     liveLocationsnapshot.data.longitude,
                   ),
-                  zoom: 12,
+                  zoom: 11,
                 ),
                 myLocationEnabled: true,
               ),

@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:savdhaan_app/provider/google_map_provider.dart';
 import 'package:savdhaan_app/widget/google_maps_widget.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 //Relative imports

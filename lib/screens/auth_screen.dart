@@ -175,14 +175,15 @@ class _AuthScreenState extends State<AuthScreen> {
         MediaQuery.of(context).padding.bottom;
     final width = size.width;
     final widthOfContainer = width * 0.95;
-    double heightOfContainer = _isLogin ? height * 0.68 : height * 0.80;
+    double heightOfContainer = _isLogin ? height * 0.62 : height * 0.75;
 
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Theme.of(context).primaryColorDark,
       body: _progressReq
           ? Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                  valueColor: new AlwaysStoppedAnimation<Color>(Colors.white)),
             )
           : Center(
               child: Container(
@@ -381,7 +382,9 @@ class _AuthScreenState extends State<AuthScreen> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Text(
-                                    "No Account Yet!",
+                                    _isLogin
+                                        ? "No Account Yet!"
+                                        : "Have a Account",
                                     style: Theme.of(context).textTheme.caption,
                                   ),
                                   FlatButton(
